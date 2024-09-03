@@ -17,7 +17,7 @@
     <div class="container">
         <h1 class="my-5 text-center display-1">Regístrate</h1>
         
-        <form class="w-50 mx-auto" action="registrar.html" method="post" enctype=multipart/form-data>
+        <form class="w-50 mx-auto" action="registrar.php" method="post" enctype="multipart/form-data">
             <label class="form-label" for="email">Ingresa tu correo electrónico</label>
             <input class="form-control mb-3" type="email" id="email" name="email" placeholder="name@example.com" required>
             
@@ -34,8 +34,8 @@
 
             <label class="form-label" for="role">Selecciona tu rol de usuario</label>
             <select class="form-select" name="role" id="role">
-                <option value="1">Público</option>
-                <option value="2">Privado</option>
+                <option value="public">Público</option>
+                <option value="private">Privado</option>
             </select>
             <p class="form-text">Los usuarios públicos pueden vender artículos. Los usuarios privados solo pueden comprar.</p>
             
@@ -50,9 +50,9 @@
             
             <label class="form-label" for="gender">Selecciona tu sexo</label>
             <select class="form-select" name="gender" id="gender">
-                <option value="1">Masculino</option>
-                <option value="2">Femenino</option>
-                <option value="3">Otro</option>
+                <option value="male">Masculino</option>
+                <option value="female">Femenino</option>
+                <option value="unknown">Otro</option>
             </select>
             
             <input class="btn btn-primary btn-lg my-3 d-block mx-auto" type="submit" value="Registrarse">
