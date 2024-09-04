@@ -4,13 +4,40 @@ body {
     font-family: "Roboto", system-ui;
 }
 
-.password-container {
+form > .form-group {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+fieldset, form > .form-group {
+    margin-bottom: 2rem;
+}
+
+fieldset .form-group {
+    flex: 0 49%;
+}
+
+fieldset .form-text {
+    flex-basis: 100%;
+}
+
+.form-text, .form-label {
+    margin-bottom: 0;
+}
+
+.form-group.password {
     position: relative;
 }
 
 .password-toggle-icon {
     position: absolute;
     left: 90%;
-    top: 57%;
+    top: 50%;
     cursor: pointer;
 }

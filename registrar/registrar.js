@@ -25,6 +25,21 @@ document.querySelector('.password-toggle-icon').addEventListener('click', ()=> {
     }
 })
 
+document.querySelector('input[name="avatar"]').addEventListener('change', e => {
+    const file = e.target.files[0]
+    const img = document.querySelector('img')
+    
+    if (imageIsValid(file)) {
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        
+        reader.onload = e => {
+            img.src = e.target.result
+        }
+        
+    }
+})
+
 function formIsValid(data) {
     const today = new Date()
     const birthdate = new Date(data.birthdate)
@@ -35,13 +50,21 @@ function formIsValid(data) {
         return false
     }
     
-    if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
-        alert('Por favor, selecciona una imagen de perfil válida')
+    if (!imageIsValid(file)) {
         return false
     }
     
     if (birthdate > today) {
         alert('La fecha de nacimiento ingresada no es válida.')
+        return false
+    }
+
+    return true
+}
+
+function imageIsValid(file) {
+    if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
+        alert('Por favor, selecciona una imagen de perfil válida')
         return false
     }
 
