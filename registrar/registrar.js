@@ -1,4 +1,30 @@
 const inputs = document.querySelectorAll('.form-control')
+const inputPassword = document.querySelector('input[name="password"]')
+
+inputs.forEach(input => {
+    input.addEventListener('change', e => {
+        if (input.checkValidity() === true && (input.type === 'text' || input.type === 'email' || input.type === 'password')) {
+            input.classList.remove('is-invalid')
+            input.classList.add('is-valid')
+        } else {
+            input.classList.remove('is-valid')
+            input.classList.add('is-invalid')
+        }
+
+        if (input.type === 'password') {
+            passwordIsValid()
+        }
+
+        if (input.type === 'date') {
+            birthdateIsValid()
+        }
+
+        if (input.type === 'file') {
+            const file = e.target.files[0]
+            imageIsValid(file)
+        }
+    })
+})
 
 document.querySelector('form').addEventListener('submit', e => {
     e.preventDefault()
@@ -7,12 +33,12 @@ document.querySelector('form').addEventListener('submit', e => {
     console.info(data)
     
     if (formIsValid(data) === true) {
+        alert('Registro exitoso')
         e.target.submit()
     }
 })
 
 document.querySelector('.password-toggle-icon').addEventListener('click', ()=> {
-    const inputPassword = document.querySelector('input[name="password"]')
     const icon = document.querySelector('i')
 
     if (inputPassword.type === 'password') {
@@ -27,11 +53,15 @@ document.querySelector('.password-toggle-icon').addEventListener('click', ()=> {
     }
 })
 
-document.querySelector('input[name="avatar"]').addEventListener('change', e => {
-    const file = e.target.files[0]
+function formIsValid(data) {
+    return (passwordIsValid() === true && imageIsValid(data.avatar) === true && birthdateIsValid() === true)
+}
+
+function imageIsValid(file) {
     const img = document.querySelector('img')
+    const inputFile = document.querySelector('input[name="avatar"]')
     
-    if (imageIsValid(file)) {
+    if (file.type === 'image/png' || file.type === 'image/jpeg') {
         const reader = new FileReader()
 
         reader.readAsDataURL(file)
@@ -42,46 +72,63 @@ document.querySelector('input[name="avatar"]').addEventListener('change', e => {
 
         img.classList.add('valid-image')
         img.classList.remove('invalid-image')
-    } else {
-        img.classList.add('invalid-image')
-        img.classList.remove('valide-image')
-        img.src = '../avatars/default-avatar.jpg'
+        inputFile.classList.add('is-valid')
+        inputFile.classList.remove('is-invalid')
+
+        return true
     }
-})
+    else if (file.size === 0) { //No es obligatorio que el usuario suba una foto
+        return true
+    }
 
-inputs.forEach(input => {
-    input.addEventListener('change', () => {
-        if (input.checkValidity() === true) {
-            input.classList.remove('is-invalid')
-            input.classList.add('is-valid')
-        } else {
-            input.classList.remove('is-valid')
-            input.classList.add('is-invalid')
-        }
-    })
-})
+    img.classList.add('invalid-image')
+    img.classList.remove('valid-image')
+    inputFile.classList.add('is-invalid')
+    inputFile.classList.remove('is-valid')
+    img.src = '../avatars/default-avatar.jpg'
 
-function formIsValid(data) {
-    const today = new Date()
-    const birthdate = new Date(data.birthdate)
+    return false
+}
 
-    if (data.password !== data.confirmPassword) {
-        alert('La contraseña ingresada no coincide')
+function passwordIsValid() {
+    const eyeIcon = document.querySelector('.password-toggle-icon')
+    const inputConfirmPassword = document.querySelector('input[name="confirm-password"]')
+    eyeIcon.classList.add('move-icon')
+    
+    if (inputPassword.value !== inputConfirmPassword.value) {
+        inputConfirmPassword.classList.remove('is-valid')
+        inputConfirmPassword.classList.add('is-invalid')
         return false
     }
     
-    if (!imageIsValid(data.avatar)) {
-        return false
-    }
-    
-    if (birthdate > today) {
-        alert('La fecha de nacimiento ingresada no es válida.')
-        return false
-    }
-
+    inputConfirmPassword.classList.remove('is-invalid')
+    inputConfirmPassword.classList.add('is-valid')
     return true
 }
 
-function imageIsValid(file) {
-    return !(file.type !== 'image/png' && file.type !== 'image/jpeg')
+function birthdateIsValid() {
+    const inputBirthdate = document.querySelector('input[type="date"]')
+    const today = new Date()
+    const birthdate = new Date(inputBirthdate.value)
+    const monthDifference = today.getMonth() - birthdate.getMonth()
+    const dayDifference = today.getDate() - birthdate.getDate()
+    const MINIMUM_AGE = 18
+    const HIGHEST_AGE_EVER = 115
+    let age = today.getFullYear() - birthdate.getFullYear()
+
+    console.log(birthdate)
+
+    if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+        age--
+    }
+
+    if (birthdate > today || age < MINIMUM_AGE || age > HIGHEST_AGE_EVER) {
+        inputBirthdate.classList.remove('is-valid')
+        inputBirthdate.classList.add('is-invalid')
+        return false
+    }
+
+    inputBirthdate.classList.remove('is-invalid')
+    inputBirthdate.classList.add('is-valid')
+    return true
 }

@@ -2,6 +2,7 @@
 
 body {
     font-family: "Roboto", system-ui;
+    background-color: #FEFEFA;
 }
 
 form > .form-group {
@@ -48,6 +49,10 @@ fieldset .form-text {
     left: 90%;
     top: 50%;
     cursor: pointer;
+}
+
+.move-icon {
+    left: 82%;
 }
 
 .img-thumbnail {
