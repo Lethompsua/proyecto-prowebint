@@ -27,6 +27,14 @@ fieldset .form-text {
     flex-basis: 100%;
 }
 
+.btn {
+    transition: background-color 0.2s ease;
+}
+
+.form-control {
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
 .form-text, .form-label {
     margin-bottom: 0;
 }
