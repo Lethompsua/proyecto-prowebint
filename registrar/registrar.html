@@ -10,7 +10,9 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="my-5 text-center display-1">Regístrate</h1>
+        <h1 class="mt-5 mb-0 text-center display-1">Regístrate</h1>
+
+        <hr class="my-5">
         
         <form class="w-50 mx-auto" action="registrar.php" method="post" enctype="multipart/form-data">
             <fieldset>
@@ -36,6 +38,11 @@
                 </div>
                 <p class="form-text">La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un caracter especial (por ejemplo: !, ?, #, /, etc.).</p>
             </fieldset>
+            <div class="form-group">
+                <label class="form-label text-center w-100" for="avatar">Selecciona tu foto de perfil</label>
+                <input class="form-control" type="file" name="avatar" id="avatar" accept="image/png, image/jpeg">
+                <img class="img-thumbnail" src="../avatars/default-avatar.jpg" alt="Imagen de perfil por defecto">
+            </div>
             <fieldset>
                 <div class="form-group">
                     <label class="form-label" for="fullname">Ingresa tu nombre completo</label>
@@ -65,12 +72,7 @@
                 </div>
             </fieldset>
 
-            <div class="form-group">
-                <label class="form-label" for="avatar">Selecciona tu foto de perfil</label>
-                <input class="form-control" type="file" name="avatar" id="avatar" accept="image/png, image/jpeg" required>
-            </div>
-            
-            <input class="btn btn-primary btn-lg mt-5 d-block mx-auto" type="submit" value="Registrarse">
+            <input class="btn btn-primary btn-lg mb-4 d-block mx-auto" type="submit" value="Registrarse">
         </form>
     </div>
     

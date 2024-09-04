@@ -13,7 +13,10 @@ fieldset {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 1rem;
+}
+
+fieldset, form > .form-group {
+    margin-bottom: 2rem;
 }
 
 fieldset .form-group {
@@ -35,6 +38,6 @@ fieldset .form-text {
 .password-toggle-icon {
     position: absolute;
     left: 90%;
-    top: 57%;
+    top: 50%;
     cursor: pointer;
 }
