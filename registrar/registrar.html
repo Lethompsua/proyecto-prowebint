@@ -12,48 +12,65 @@
     <div class="container">
         <h1 class="my-5 text-center display-1">Regístrate</h1>
         
-        <form class="w-25 mx-auto" action="registrar.php" method="post" enctype="multipart/form-data">
-            <label class="form-label" for="email">Ingresa tu correo electrónico</label>
-            <input class="form-control mb-3" type="email" id="email" name="email" placeholder="name@example.com" required>
-            
-            <label class="form-label" for="username">Ingresa tu nombre de usuario</label>
-            <input class="form-control" type="text" id="username" name="username" placeholder="adameXD" pattern="[A-Za-zñÑ\d]{3,}" required>
-            <p class="form-text">El nombre de usuario debe tener al menos 3 caracteres. Pueden ser letras o números.</p>
-            
-            <div class="password-container">
-                <label class="form-label" for="password">Ingresa tu contraseña</label>
-                <input class="form-control" type="password" id="password" name="password" placeholder="********" pattern="(?=.*[A-ZÑ])(?=.*[a-zñ])(?=.*\d)(?=.*[^A-Za-z\d])\S{8,}" required>
-                <span class="password-toggle-icon"><i class="fa-regular fa-eye-slash"></i></span>
-            </div>
-            <p class="form-text">La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un caracter especial (por ejemplo: !, ?, #, /, etc.).</p>
-            
-            <label class="form-label" for="confirmPassword">Confirma tu contraseña</label>
-            <input class="form-control mb-3" type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required>
-            
-            <label class="form-label" for="fullname">Ingresa tu nombre completo</label>
-            <input class="form-control mb-3" type="text" id="fullname" name="fullname" placeholder="John Marston" pattern="[A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜa-zñáéíóúàèìòùñäëïöü\s]+" required>
+        <form class="w-50 mx-auto" action="registrar.php" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <div class="form-group">
+                    <label class="form-label" for="email">Ingresa tu correo electrónico</label>
+                    <input class="form-control" type="email" id="email" name="email" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="username">Ingresa tu nombre de usuario</label>
+                    <input class="form-control" type="text" id="username" name="username" placeholder="adameXD" pattern="[A-Za-zñÑ\d]{3,}" required>
+                    <p class="form-text">El nombre de usuario debe tener al menos 3 caracteres. Pueden ser letras o números.</p>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group password">
+                    <label class="form-label" for="password">Ingresa tu contraseña</label>
+                    <input class="form-control" type="password" id="password" name="password" placeholder="********" pattern="(?=.*[A-ZÑ])(?=.*[a-zñ])(?=.*\d)(?=.*[^A-Za-z\d])\S{8,}" required>
+                    <span class="password-toggle-icon"><i class="fa-regular fa-eye-slash"></i></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="confirmPassword">Confirma tu contraseña</label>
+                    <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required>
+                </div>
+                <p class="form-text">La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un caracter especial (por ejemplo: !, ?, #, /, etc.).</p>
+            </fieldset>
+            <fieldset>
+                <div class="form-group">
+                    <label class="form-label" for="fullname">Ingresa tu nombre completo</label>
+                    <input class="form-control" type="text" id="fullname" name="fullname" placeholder="John Marston" pattern="[A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜa-zñáéíóúàèìòùñäëïöü\s]+" required>
+                </div>  
+                <div class="form-group">
+                    <label class="form-label" for="birthdate">Ingresa tu fecha de nacimiento</label>
+                    <input class="form-control" type="date" name="birthdate" id="birthdate" required>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group">
+                    <label class="form-label" for="gender">Selecciona tu sexo</label>
+                    <select class="form-select" name="gender" id="gender">
+                        <option value="male">Masculino</option>
+                        <option value="female">Femenino</option>
+                        <option value="unknown">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="role">Selecciona tu rol de usuario</label>
+                    <select class="form-select" name="role" id="role">
+                        <option value="public">Público</option>
+                        <option value="private">Privado</option>
+                    </select>
+                    <p class="form-text">Los usuarios públicos pueden vender artículos. Los usuarios privados solo pueden comprar.</p>
+                </div>
+            </fieldset>
 
-            <label class="form-label" for="role">Selecciona tu rol de usuario</label>
-            <select class="form-select" name="role" id="role">
-                <option value="public">Público</option>
-                <option value="private">Privado</option>
-            </select>
-            <p class="form-text">Los usuarios públicos pueden vender artículos. Los usuarios privados solo pueden comprar.</p>
+            <div class="form-group">
+                <label class="form-label" for="avatar">Selecciona tu foto de perfil</label>
+                <input class="form-control" type="file" name="avatar" id="avatar" accept="image/png, image/jpeg" required>
+            </div>
             
-            <label class="form-label" for="avatar">Selecciona tu foto de perfil</label>
-            <input class="form-control mb-3" type="file" name="avatar" id="avatar" accept="image/png, image/jpeg" required>
-            
-            <label class="form-label" for="birthdate">Ingresa tu fecha de nacimiento</label>
-            <input class="form-control mb-3" type="date" name="birthdate" id="birthdate" required>
-            
-            <label class="form-label" for="gender">Selecciona tu sexo</label>
-            <select class="form-select" name="gender" id="gender">
-                <option value="male">Masculino</option>
-                <option value="female">Femenino</option>
-                <option value="unknown">Otro</option>
-            </select>
-            
-            <input class="btn btn-primary btn-lg my-3 d-block mx-auto" type="submit" value="Registrarse">
+            <input class="btn btn-primary btn-lg mt-5 d-block mx-auto" type="submit" value="Registrarse">
         </form>
     </div>
     
