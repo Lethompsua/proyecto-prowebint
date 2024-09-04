@@ -1,3 +1,5 @@
+const inputs = document.querySelectorAll('.form-control')
+
 document.querySelector('form').addEventListener('submit', e => {
     e.preventDefault()
 
@@ -31,26 +33,44 @@ document.querySelector('input[name="avatar"]').addEventListener('change', e => {
     
     if (imageIsValid(file)) {
         const reader = new FileReader()
+
         reader.readAsDataURL(file)
         
         reader.onload = e => {
             img.src = e.target.result
         }
-        
+
+        img.classList.add('valid-image')
+        img.classList.remove('invalid-image')
+    } else {
+        img.classList.add('invalid-image')
+        img.classList.remove('valide-image')
+        img.src = '../avatars/default-avatar.jpg'
     }
+})
+
+inputs.forEach(input => {
+    input.addEventListener('change', () => {
+        if (input.checkValidity() === true) {
+            input.classList.remove('is-invalid')
+            input.classList.add('is-valid')
+        } else {
+            input.classList.remove('is-valid')
+            input.classList.add('is-invalid')
+        }
+    })
 })
 
 function formIsValid(data) {
     const today = new Date()
     const birthdate = new Date(data.birthdate)
-    const file = data.avatar
 
     if (data.password !== data.confirmPassword) {
         alert('La contraseña ingresada no coincide')
         return false
     }
     
-    if (!imageIsValid(file)) {
+    if (!imageIsValid(data.avatar)) {
         return false
     }
     
@@ -63,10 +83,5 @@ function formIsValid(data) {
 }
 
 function imageIsValid(file) {
-    if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
-        alert('Por favor, selecciona una imagen de perfil válida')
-        return false
-    }
-
-    return true
+    return !(file.type !== 'image/png' && file.type !== 'image/jpeg')
 }

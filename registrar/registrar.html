@@ -19,6 +19,7 @@
                 <div class="form-group">
                     <label class="form-label" for="email">Ingresa tu correo electrónico</label>
                     <input class="form-control" type="email" id="email" name="email" placeholder="name@example.com" required>
+                    <p class="invalid-feedback" id="validationImage">Por favor, ingresa un correo válido</p>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="username">Ingresa tu nombre de usuario</label>
@@ -40,8 +41,9 @@
             </fieldset>
             <div class="form-group">
                 <label class="form-label text-center w-100" for="avatar">Selecciona tu foto de perfil</label>
-                <input class="form-control" type="file" name="avatar" id="avatar" accept="image/png, image/jpeg">
+                <input class="form-control" type="file" name="avatar" id="avatar" accept="image/png, image/jpeg" aria-describedby="validationImage">
                 <img class="img-thumbnail" src="../avatars/default-avatar.jpg" alt="Imagen de perfil por defecto">
+                <p class="invalid-feedback" id="validationImage">Por favor, ingresa una imagen válida</p>
             </div>
             <fieldset>
                 <div class="form-group">

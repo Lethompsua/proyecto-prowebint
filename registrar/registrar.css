@@ -35,7 +35,7 @@ fieldset .form-text {
     transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form-text, .form-label {
+.form-text, .form-label, .invalid-feedback {
     margin-bottom: 0;
 }
 
@@ -48,4 +48,16 @@ fieldset .form-text {
     left: 90%;
     top: 50%;
     cursor: pointer;
+}
+
+.img-thumbnail {
+    transition: border 0.2s ease;
+}
+
+.invalid-image {
+    border-color: #EA868F;
+}
+
+.valid-image {
+    border-color: #198754;
 }
