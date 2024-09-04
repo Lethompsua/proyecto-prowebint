@@ -9,6 +9,22 @@ document.querySelector('form').addEventListener('submit', e => {
     }
 })
 
+document.querySelector('.password-toggle-icon').addEventListener('click', ()=> {
+    const inputPassword = document.querySelector('input[name="password"]')
+    const icon = document.querySelector('i')
+
+    if (inputPassword.type === 'password') {
+        inputPassword.type = 'text'
+        icon.classList.remove('fa-eye-slash')
+        icon.classList.add('fa-eye')
+    }
+    else {
+        inputPassword.type = 'password'
+        icon.classList.remove('fa-eye')
+        icon.classList.add('fa-eye-slash')
+    }
+})
+
 function formIsValid(data) {
     const today = new Date()
     const birthdate = new Date(data.birthdate)

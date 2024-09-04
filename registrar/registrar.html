@@ -5,19 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-        body {
-            font-family: "Roboto", system-ui;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="registrar.css">
 </head>
 <body>
     <div class="container">
         <h1 class="my-5 text-center display-1">Regístrate</h1>
         
-        <form class="w-50 mx-auto" action="registrar.php" method="post" enctype="multipart/form-data">
+        <form class="w-25 mx-auto" action="registrar.php" method="post" enctype="multipart/form-data">
             <label class="form-label" for="email">Ingresa tu correo electrónico</label>
             <input class="form-control mb-3" type="email" id="email" name="email" placeholder="name@example.com" required>
             
@@ -25,8 +20,11 @@
             <input class="form-control" type="text" id="username" name="username" placeholder="adameXD" pattern="[A-Za-zñÑ\d]{3,}" required>
             <p class="form-text">El nombre de usuario debe tener al menos 3 caracteres. Pueden ser letras o números.</p>
             
-            <label class="form-label" for="password">Ingresa tu contraseña</label>
-            <input class="form-control" type="password" id="password" name="password" placeholder="********" pattern="(?=.*[A-ZÑ])(?=.*[a-zñ])(?=.*\d)(?=.*[^A-Za-z\d])\S{8,}" required>
+            <div class="password-container">
+                <label class="form-label" for="password">Ingresa tu contraseña</label>
+                <input class="form-control" type="password" id="password" name="password" placeholder="********" pattern="(?=.*[A-ZÑ])(?=.*[a-zñ])(?=.*\d)(?=.*[^A-Za-z\d])\S{8,}" required>
+                <span class="password-toggle-icon"><i class="fa-regular fa-eye-slash"></i></span>
+            </div>
             <p class="form-text">La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un caracter especial (por ejemplo: !, ?, #, /, etc.).</p>
             
             <label class="form-label" for="confirmPassword">Confirma tu contraseña</label>
