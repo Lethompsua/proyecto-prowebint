@@ -28,7 +28,10 @@
             <p class="form-text">La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un caracter especial (por ejemplo: !, ?, #, /, etc.).</p>
             
             <label class="form-label" for="confirmPassword">Confirma tu contraseña</label>
-            <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required>
+            <input class="form-control mb-3" type="password" id="confirmPassword" name="confirmPassword" placeholder="********" required>
+            
+            <label class="form-label" for="fullname">Ingresa tu nombre completo</label>
+            <input class="form-control mb-3" type="text" id="fullname" name="fullname" placeholder="John Marston" pattern="[A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜa-zñáéíóúàèìòùñäëïöü\s]+" required>
 
             <label class="form-label" for="role">Selecciona tu rol de usuario</label>
             <select class="form-select" name="role" id="role">
@@ -39,9 +42,6 @@
             
             <label class="form-label" for="avatar">Selecciona tu foto de perfil</label>
             <input class="form-control mb-3" type="file" name="avatar" id="avatar" accept="image/png, image/jpeg" required>
-            
-            <label class="form-label" for="fullname">Ingresa tu nombre completo</label>
-            <input class="form-control mb-3" type="text" id="fullname" name="fullname" placeholder="John Marston" pattern="[A-ZÑÁÉÍÓÚÀÈÌÒÙÄËÏÖÜa-zñáéíóúàèìòùñäëïöü\s]+" required>
             
             <label class="form-label" for="birthdate">Ingresa tu fecha de nacimiento</label>
             <input class="form-control mb-3" type="date" name="birthdate" id="birthdate" required>
