@@ -42,15 +42,26 @@ h2 {
 @media (width < 1000px) {
     .container {
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
+        gap: 10rem;
+    }
+
+    h1 {
+        margin-top: 3rem;
     }
 
     h2 {
         text-align: center;
     }
+}
 
+@media (width < 450px) {
     .form-group:last-child {
         justify-content: center;
+    }
+
+    .form-group {
+        width: 75%;
     }
 }
