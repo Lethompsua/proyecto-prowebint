@@ -72,6 +72,12 @@ fieldset .form-text {
     border-color: #198754;
 }
 
+@media (width < 768px) {
+    .move-icon {
+        left: 75%;
+    }
+}
+
 @media (width < 525px) {
     fieldset {
         justify-content: center;
