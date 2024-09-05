@@ -39,6 +39,14 @@ h2 {
     gap: 1rem;
 }
 
+.form-control {
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn {
+    transition: background-color 0.2s ease;
+}
+
 @media (width < 1000px) {
     .container {
         flex-direction: column;
