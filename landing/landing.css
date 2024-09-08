@@ -16,11 +16,48 @@
     height: 100vh;
     
     font-family: 'Poppins', sans-serif;
-    padding-top: 2rem;
     background-color: var(--white);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+header {
+    width: 100%;
+    padding-block: 2rem;
+}
+
+ul {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    gap: 5rem;
+    padding-right: 5rem;
+
+    & li {
+        list-style-type: none;
+
+        & a {
+            color: var(--blue);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+
+            &:hover {
+                color: var(--white);
+                background-color: var(--blue);
+            }
+        }
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 2;
 }
 
 h1 {
@@ -34,16 +71,9 @@ h1 {
 span {
     color: #007FFF;
     font-size: 4rem;
-    /* filter: drop-shadow(0 0 1rem #084B83); */
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-button {
+.sign-up-btn {
     background-color: var(--blue);
     padding: 1rem 1.5rem;
     border: none;
@@ -53,6 +83,6 @@ button {
     transition: background-color 0.2s ease-in-out;
 }
 
-button:hover {
+.sign-up-btn:hover {
     background-color: var(--button-hover);
 }
