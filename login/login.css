@@ -20,6 +20,10 @@ form {
     max-width: 500px;
 }
 
+h1 {
+    max-width: 500px;
+}
+
 h2 {
     width: 100%;
     text-align: left;
