@@ -28,6 +28,7 @@ ul {
     justify-content: end;
     gap: 5rem;
     padding-right: 5rem;
+    flex-wrap: wrap;
 
     & li {
         list-style-type: none;
@@ -65,7 +66,6 @@ h1 {
 
 span {
     color: #007FFF;
-    font-size: 4rem;
 }
 
 .sign-up-btn {
@@ -80,4 +80,25 @@ span {
 
 .sign-up-btn:hover {
     background-color: var(--button-hover);
+}
+
+@media (width < 768px) {
+    ul {
+        justify-content: center;
+        padding-right: 0;
+        gap: 1rem;
+    }
+}
+
+@media (width < 576px) {
+    ul {
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        row-gap: 1.5rem;
+    }
+
+    .container {
+        padding-inline: 2rem;
+    }
 }
