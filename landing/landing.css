@@ -13,14 +13,9 @@
     max-width: none;
     padding: 0;
     margin: 0;
-    height: 100vh;
-    
+
     font-family: 'Poppins', sans-serif;
     background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 header {
@@ -29,7 +24,6 @@ header {
 }
 
 ul {
-    flex: 1;
     display: flex;
     justify-content: end;
     gap: 5rem;
@@ -56,8 +50,9 @@ ul {
 main {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
     gap: 2rem;
-    flex: 2;
 }
 
 h1 {
