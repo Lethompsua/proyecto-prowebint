@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --white: #FEFEFA;
+    --black: #111;
+    --blue: #007FFF;
+    --button-hover: #0070BB;
+}
+
+.container {
+    /*Resetear de Bootstrap*/
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--white);
+}
+
+header {
+    width: 100%;
+    padding-block: 2rem;
+}
+
+ul {
+    display: flex;
+    justify-content: end;
+    gap: 5rem;
+    padding-right: 5rem;
+    flex-wrap: wrap;
+
+    & li {
+        list-style-type: none;
+
+        & a {
+            color: var(--blue);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+
+            &:hover {
+                color: var(--white);
+                background-color: var(--blue);
+            }
+        }
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+    gap: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: var(--black);
+    font-size: 3rem;
+    font-weight: 400;
+    max-width: 500px;
+}
+
+span {
+    color: #007FFF;
+}
+
+.sign-up-btn {
+    background-color: var(--blue);
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--white);
+    align-self: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.sign-up-btn:hover {
+    background-color: var(--button-hover);
+}
+
+@media (width < 768px) {
+    ul {
+        justify-content: center;
+        padding-right: 0;
+        gap: 1rem;
+    }
+}
+
+@media (width < 576px) {
+    ul {
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        row-gap: 1.5rem;
+    }
+
+    .container {
+        padding-inline: 2rem;
+    }
+}
