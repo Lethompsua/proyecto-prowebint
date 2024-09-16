@@ -11,6 +11,9 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar {
@@ -21,12 +24,19 @@ body {
     transition: background-color 0.2s ease-in-out;
 }
 
+main {
+    flex: 1;
+}
+
 .categories {
     list-style-type: none;
     padding: 0;
     display: flex;
     justify-content: center;
     gap: 10rem;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    column-gap: 3rem;
 }
 
 .category {
@@ -53,4 +63,12 @@ body {
 
 .btn-primary {
 	padding: 0.5rem 1rem;
+}
+
+footer {
+    background-color: var(--gray);
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding-block: 1rem;
 }
