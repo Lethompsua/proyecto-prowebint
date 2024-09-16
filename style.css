@@ -16,3 +16,26 @@ body {
 .navbar {
     background-color: var(--gray);
 }
+
+.btn {
+    transition: background-color 0.2s ease-in-out;
+}
+
+.categories {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.category {
+	transition: background-color 0.2s ease-in-out;
+	padding: 0.5rem 1rem;
+	border-radius: 5px;
+}
+
+.category:hover {
+    background-color: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+}
