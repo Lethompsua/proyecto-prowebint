@@ -116,8 +116,6 @@ function birthdateIsValid() {
     const HIGHEST_AGE_EVER = 115
     let age = today.getFullYear() - birthdate.getFullYear()
 
-    console.log(birthdate)
-
     if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
         age--
     }
