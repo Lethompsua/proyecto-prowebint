@@ -18,6 +18,8 @@ body {
     gap: 2.5rem;
 }
 
+/*Navbar*/
+
 .navbar {
     background-color: var(--gray);
 }
@@ -25,6 +27,13 @@ body {
 .btn {
     transition: background-color 0.2s ease-in-out;
 }
+
+input[type="Search"] {
+    transition: border 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
+}
+
+/*Carrousel*/
 
 main {
     flex: 1;
@@ -66,6 +75,8 @@ main {
 .btn-primary {
 	padding: 0.5rem 1rem;
 }
+
+/*Footer*/
 
 footer {
     background-color: var(--gray);
